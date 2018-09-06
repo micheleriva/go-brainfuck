@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -10,6 +11,17 @@ func checkExt(filePath string) bool {
 
 	splitted := strings.Split(filePath, ".")
 	return splitted[len(splitted) -1] == "bf"
+}
+
+func getBfContent(filePath string) string {
+
+	data, err := ioutil.ReadFile(filePath)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return string(data)
 }
 
 func main() {
@@ -25,5 +37,10 @@ func main() {
 		fmt.Println("Please provide a valid Brainfuck file")
 		os.Exit(1)
 	}
+
+	fileCont := getBfContent(programPath)
+	compiled := compile(fileCont)
+
+	fmt.Println(compiled)
 
 }

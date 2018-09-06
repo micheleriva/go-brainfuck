@@ -30,6 +30,8 @@ func compile(program string) string {
 		}
 	}
 
+	return output
+
 }
 
 func incrementPointer() {
@@ -46,8 +48,8 @@ func decrementPointer() {
 
 func incrementByte() {
 	if(x == 0){
-		if((a[p] || 0) < maxVal) {
-			a[p] = (a[p] || 0) + 1
+		if(a[p] < maxVal) {
+			a[p] = a[p] + 1
 		} else {
 			a[p] = 0
 		}
@@ -56,8 +58,8 @@ func incrementByte() {
 
 func decrementByte() {
 	if(x == 0) {
-		if((a[p] || 0) > 0) {
-			a[p] = (a[p] || 0) - 1
+		if(a[p] > 0) {
+			a[p] = a[p] - 1
 		} else {
 			a[p] = maxVal
 		}
@@ -77,8 +79,8 @@ func beginLoop(i int) {
 		return
 	}
 
-	if((a[p] || 0) > 0) {
-		append(n, i)
+	if(a[p] > 0) {
+		n = append(n, i)
 	} else {
 		x++
 	}
@@ -91,7 +93,7 @@ func endLoop(i int) int {
 		return i
 	}
 
-	if((a[p] || 0) > 0) {
+	if(a[p] > 0) {
 		origin := n[len(n) - 1]
 		i = origin - 1
 	}

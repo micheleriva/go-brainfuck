@@ -3,7 +3,6 @@ package main
 var maxVal int = 255
 var a []int
 var n []int
-var op int = 0
 var p int = 0
 var x int = 0
 var output string = ""

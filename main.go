@@ -12,18 +12,6 @@ func checkExt(filePath string) bool {
 	return splitted[len(splitted) -1] == "bf"
 }
 
-func compile(program string) string {
-
-	var maxVal int = 255
-	var a []int
-	var n []int
-	var op int = 0
-	var p int = 0
-	var x int = 0
-	var output string = ""
-
-}
-
 func main() {
 
 	if len(os.Args) < 2 {
